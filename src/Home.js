@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
-import './Home.css';
-import Feedback from './Feedback.js';
-import React, { useEffect, useState } from 'react';
-import RealTimeBPMAnalyzer from 'realtime-bpm-analyzer';
-import AudioMotionAnalyzer from 'audiomotion-analyzer';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import ReactHintFactory from 'react-hint';
-import 'react-hint/css/index.css';
-import './custom-hint.css';
-import ReactGA from 'react-ga4';
+import "./Home.css";
+import Feedback from "./Feedback.js";
+import React, { useEffect, useState } from "react";
+import RealTimeBPMAnalyzer from "realtime-bpm-analyzer";
+import AudioMotionAnalyzer from "audiomotion-analyzer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ReactHintFactory from "react-hint";
+import "react-hint/css/index.css";
+import "./custom-hint.css";
+import ReactGA from "react-ga4";
 
 const ReactHint = ReactHintFactory(React);
 
@@ -26,9 +26,9 @@ function Home(props) {
   const bufferSize = isMobile ? 16384 : 4096;
 
   useEffect(() => {
-    ReactGA.event('select_content', {
-      content_type: 'mode',
-      item_id: 'realtime',
+    ReactGA.event("select_content", {
+      content_type: "mode",
+      item_id: "realtime",
     });
   }, []);
 
@@ -46,24 +46,24 @@ function Home(props) {
 
         if (!isMobile || isForcedViz) {
           const audioMotionGradientOptions = {
-            bgColor: '#0D4C73',
-            dir: 'v',
+            bgColor: "#0D4C73",
+            dir: "v",
             colorStops: [
-              { pos: 0.8, color: '#35748C' },
-              { pos: 0.6, color: '#F2B680' },
-              { pos: 0.4, color: '#D98C5F' },
-              { pos: 0.2, color: '#8C5230' },
+              { pos: 0.8, color: "#35748C" },
+              { pos: 0.6, color: "#F2B680" },
+              { pos: 0.4, color: "#D98C5F" },
+              { pos: 0.2, color: "#8C5230" },
             ],
           };
 
           const audioMotion = new AudioMotionAnalyzer(
-            document.getElementById('AudioMotionAnalyzer')
+            document.getElementById("AudioMotionAnalyzer")
           );
 
-          audioMotion.registerGradient('my-grad', audioMotionGradientOptions);
+          audioMotion.registerGradient("my-grad", audioMotionGradientOptions);
 
           audioMotion.setOptions({
-            gradient: 'my-grad',
+            gradient: "my-grad",
             height: window.innerHeight / 4,
             showBgColor: false,
             overlay: true,
@@ -92,8 +92,8 @@ function Home(props) {
         log.error(`${err.name}: ${err.message}`);
       }
     } else {
-      toast.error('No luck with accessing audio in your browser...');
-      log.error('Browser is not supported');
+      toast.error("No luck with accessing audio in your browser...");
+      log.error("Browser is not supported");
     }
   };
 
@@ -153,8 +153,8 @@ function Home(props) {
           log.info(bpm);
           log.info(`Threshold, ${threshold}`);
 
-          ReactGA.event('detect', {
-            mode: 'realtime',
+          ReactGA.event("detect", {
+            mode: "realtime",
             bpm: bpm[0].tempo,
             threshold: threshold,
           });
@@ -195,7 +195,7 @@ function Home(props) {
           <h2 style={{ opacity: threshold + 0.4 }}>
             {isResultReady ? primaryBPM : null}
           </h2>
-          <h3>{isResultReady ? 'BPM' : 'Listening...'}</h3>
+          <h3>{isResultReady ? "BPM" : "Listening..."}</h3>
 
           {!isResultReady && primaryBPM ? (
             <h4>
@@ -206,7 +206,7 @@ function Home(props) {
           ) : null}
 
           <button onClick={stopListening} className="btn-stop">
-            Start over
+            Stop listening
           </button>
 
           {primaryBPM ? (
@@ -229,7 +229,7 @@ function Home(props) {
               ></audio>
               <br />
               <small>
-                Play it loud! It takes 5-30 seconds to detect correct BPM (120).{' '}
+                Play it loud! It takes 5-30 seconds to detect correct BPM (120).{" "}
               </small>
             </p>
           ) : (

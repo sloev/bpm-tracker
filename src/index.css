@@ -13,8 +13,8 @@ body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
 
-  background-color: #0d4c73;
-  color: #fff;
+  background-color: white;
+  color: #1C1C1E;
 
   display: flex;
 }
@@ -30,26 +30,26 @@ a {
 }
 
 h1 {
-  font-size: 1em;
+  font-size: 2em;
 }
 
 h2 {
   font-size: 8em;
-  color: #f2b680;
+  color: #1C1C1E;
   margin: 0;
   line-height: 0.5em;
 }
 
 h3 {
   font-size: 2em;
-  color: #d98c5f;
+  color: #1C1C1E;
   margin-bottom: 1em;
   line-height: 1em;
 }
 
 h4 {
   font-size: 3em;
-  color: #35748c;
+  color: #1C1C1E;
   margin-bottom: 0;
   line-height: 0.5em;
 }
@@ -62,7 +62,7 @@ ol {
 
 button,
 .button {
-  background: #35748c;
+  background: greenyellow;
   border-radius: 5px;
   color: #ffffff;
   border: 0;

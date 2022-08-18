@@ -14,18 +14,12 @@
 .nav,
 .ads {
   padding: 1em;
-  color: #0d4c73;
 }
 
-header {
-  color: #ffffff;
-  text-align: center;
-  display: flex;
-}
 
 footer p {
   font-size: 0.75em;
-  background-color: #35748c;
+  background-color: #1C1C1E;
   color: #ffffff;
   padding: 0.25em 0.5em;
   text-align: center;
@@ -43,25 +37,31 @@ footer p {
   }
 }
 
-header h1 {
-  flex: 1;
+
+header {
+  color: #ffffff;
   text-align: center;
+  display: flex;
+  background-color: #1C1C1E;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
   margin-bottom: 0;
+  padding: 20px;
 }
 
 header h1 a {
   text-decoration: none;
+
 }
 
-.about {
-  margin-left: auto;
-  background: #35748c;
-  border-radius: 0 0 0 2em;
-  color: #ffffff;
-  border: 0;
-  padding: 0.7em 0.6em 0 1em;
-  font-size: 1em;
-  line-height: 0.5em;
-  font-weight: bold;
-  text-decoration: none;
+
+p, p> *, label {
+  color: #1C1C1E;
 }
+
+
+
