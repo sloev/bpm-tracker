@@ -182,13 +182,6 @@ function Home(props) {
           >
             Start listening
           </button>
-
-          <p>You will be asked to provide access to your microphone.</p>
-          <p>App does not send any audio stream data to the servers.</p>
-
-          <p>
-            NEW! <a href="/upload">BPM detection in hosted mp3/wav files</a>
-          </p>
         </div>
       ) : (
         <div>
@@ -208,37 +201,6 @@ function Home(props) {
           <button onClick={stopListening} className="btn-stop">
             Stop listening
           </button>
-
-          {primaryBPM ? (
-            <Feedback bpm={primaryBPM} log={log} type="mic"></Feedback>
-          ) : null}
-
-          <br />
-          <br />
-
-          {isSampleVisible ? (
-            <p>
-              <small className="hint" onClick={toggleSampleVisibility}>
-                Hide sample file
-              </small>
-              <br />
-              <audio
-                src="/samples/bpmtechno-120.mp3"
-                id="sample"
-                controls
-              ></audio>
-              <br />
-              <small>
-                Play it loud! It takes 5-30 seconds to detect correct BPM (120).{" "}
-              </small>
-            </p>
-          ) : (
-            <p>
-              <small className="hint" onClick={toggleSampleVisibility}>
-                Show sample file
-              </small>
-            </p>
-          )}
         </div>
       )}
 

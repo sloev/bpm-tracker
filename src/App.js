@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import "./App.css";
 import Home from "./Home.js";
-import Account from "./Account.js";
-import Upload from "./Upload.js";
 import log from "loglevel";
 import { isMobile } from "react-device-detect";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -73,13 +71,6 @@ function App() {
       </header>
       <div className="body">
         <Switch>
-          <Route path="/account">
-            <Account />
-          </Route>
-
-          <Route path="/upload">
-            <Upload isDebug={isDebug} log={log} />
-          </Route>
           <Route path="/">
             <Home
               isDebug={isDebug}
