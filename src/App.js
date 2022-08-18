@@ -83,6 +83,10 @@ function App() {
         </Switch>
       </div>
 
+      <footer>
+        <div id="AudioMotionAnalyzer"></div>
+      </footer>
+
       <ToastContainer />
     </Router>
   );
