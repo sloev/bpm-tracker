@@ -82,10 +82,6 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <footer>
-        <div id="AudioMotionAnalyzer"></div>
-        <p>copyrights reserved</p>
-      </footer>
 
       <ToastContainer />
     </Router>

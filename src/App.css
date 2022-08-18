@@ -17,15 +17,6 @@
 }
 
 
-footer p {
-  font-size: 0.75em;
-  background-color: #1C1C1E;
-  color: #ffffff;
-  padding: 0.25em 0.5em;
-  text-align: center;
-  margin: 0;
-}
-
 @media (min-width: 768px) {
   .body {
     flex-direction: row;
