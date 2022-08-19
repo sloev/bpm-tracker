@@ -82,6 +82,8 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <div id="ledblink" className="">Hello!</div>
+
 
       <footer>
         <div id="AudioMotionAnalyzer"></div>
