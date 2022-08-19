@@ -11,6 +11,22 @@
   order: -1;
 }
 
+.fadein {
+  background-color: brown;
+  opacity:1;
+ 
+  }
+
+.fadeout {
+  background-color: brown;
+  opacity:0;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;     
+  transition: opacity 0.2s; 
+  }
+
+
+
 .nav,
 .ads {
   padding: 1em;
