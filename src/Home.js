@@ -10,6 +10,22 @@ import ReactHintFactory from "react-hint";
 import "react-hint/css/index.css";
 import "./custom-hint.css";
 import ReactGA from "react-ga4";
+import WAAClock from 'waaclock';
+
+
+
+
+// start
+var currentTempo = 60
+var clock, freqEvent1
+
+
+  // Scheduling functions provided by WAAClock merely execute your callback slightly before
+  // the given deadline, so you would have time to schedule things exactly using Web Audio API
+  // primitives. Setting the tolerance allows to control this behaviour, by telling the clock 
+  // how early before the deadline it can run the callback.
+
+// stop
 
 const ReactHint = ReactHintFactory(React);
 
@@ -37,6 +53,17 @@ function Home(props) {
       try {
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         context = new window.AudioContext();
+        clock = new WAAClock(context)
+        clock.start()
+
+ // The following creates an event that will fire first at second 1 and repeat every 2 seconds.
+ freqEvent1 = clock.setTimeout(function(event) {
+  console.log("beat ", new Date())
+  document.getElementById('ledblink').className = 'fadein';
+  setTimeout(()=>{  document.getElementById('ledblink').className = 'fadeout';
+}, 10)
+}, 1).repeat(1).tolerance({early: 0.1})
+
 
         const stream = await navigator.mediaDevices.getUserMedia({
           audio: true,
@@ -131,7 +158,7 @@ function Home(props) {
         numberOfInputChannels: 1,
         numberOfOutputChannels: 1,
       },
-      computeBPMDelay: 5000,
+      computeBPMDelay: 1000,
       stabilizationTime: 10000,
       continuousAnalysis: true,
       pushTime: 1000,
@@ -149,6 +176,9 @@ function Home(props) {
 
           setPrimaryBPM(`${bpm[0].tempo}`);
           setSecondaryBPM(`${bpm[1].tempo}`);
+            clock.timeStretch(context.currentTime, [freqEvent1], currentTempo / bpm[0].tempo)
+            currentTempo = bpm[0].tempo
+          
 
           log.info(bpm);
           log.info(`Threshold, ${threshold}`);
